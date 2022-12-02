@@ -14,15 +14,14 @@ router.get('/', async (req, res) => {
   }
 }); //DONE
 
+// find one category by its `id` value
 router.get('/:id', async (req, res) => {
-  // find one category by its `id` value
-  // be sure to include its associated Products
-  console.log(req.params)
   try {
     const category = await Category.findOne({
       where: {
         id: req.params.id
       },
+      // include its associated Products
       include: [{ model: Product }]
     })
     res.json(category)
@@ -31,8 +30,8 @@ router.get('/:id', async (req, res) => {
   }
 }); //DONE
 
+// create a new category
 router.post('/', async (req, res) => {
-  // create a new category
   try {
     const category = await Category.create(req.body)
     res.json(category)
@@ -41,22 +40,22 @@ router.post('/', async (req, res) => {
   }
 }); //DONE
 
+// update a category by its `id` value
 router.put('/:id', async (req, res) => {
-  // update a category by its `id` value
-  try{
+  try {
     const category = await Category.update(req.body, {
       where: {
         id: req.params.id
       }
     })
     res.json('Category updated!')
-  } catch(err){
+  } catch (err) {
     res.status(500).json(err)
   }
 }); //DONE
 
+// delete a category by its `id` value
 router.delete('/:id', async (req, res) => {
-  // delete a category by its `id` value
   try {
     const result = await Category.destroy({
       where: {

@@ -8,21 +8,58 @@ router.get('/', (req, res) => {
   // be sure to include its associated Product data
 });
 
-router.get('/:id', (req, res) => {
-  // find a single tag by its `id`
-  // be sure to include its associated Product data
-});
+// find a single tag by its `id`
+router.get('/:id', async (req, res) => {
+  try {
+    const product = await ProductTag.findOne({
+      where: {
+        id: req.params.id
+      },
+      //include its associated Product data
+      include: [{ model: Product }]
+    })
+    res.json(productTag)
+  } catch (err) {
+    res.status(500).json(err)
+  }
+}); //DONE
 
-router.post('/', (req, res) => {
-  // create a new tag
-});
+// create a new tag
+router.post('/', async (req, res) => {
+  try {
+    const productTag = await ProductTag.create(req.body)
+    res.json(productTag)
+  } catch (err) {
+    res.status(500).json(err)
+  }
+});//DONE
 
-router.put('/:id', (req, res) => {
-  // update a tag's name by its `id` value
-});
+// update a tag's name by its `id` value
+router.put('/:id', async (req, res) => {
+  try {
+    const result = await ProductTag.update(req.body, {
+      where: {
+        id: req.params.id
+      }
+    })
+    res.json('Product Tag updated!')
+  } catch (err) {
+    res.status(500).json(err)
+  }
+}); //DONE
 
-router.delete('/:id', (req, res) => {
-  // delete on tag by its `id` value
-});
+// delete on tag by its `id` value
+router.delete('/:id', async (req, res) => {
+  try {
+    const result = await ProductTag.destroy({
+      where: {
+        id: req.params.id
+      }
+    })
+    res.json(result)
+  } catch (err) {
+    res.status(500).json(err)
+  }
+}); //DONE
 
 module.exports = router;
