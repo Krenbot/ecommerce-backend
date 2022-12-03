@@ -18,7 +18,7 @@ router.get('/', async (req, res) => {
 // find a single tag by its `id`
 router.get('/:id', async (req, res) => {
   try {
-    const product = await ProductTag.findOne({
+    const productTag = await ProductTag.findOne({
       where: {
         id: req.params.id
       },
@@ -44,7 +44,7 @@ router.post('/', async (req, res) => {
 // update a tag's name by its `id` value
 router.put('/:id', async (req, res) => {
   try {
-    const result = await ProductTag.update(req.body, {
+    await ProductTag.update(req.body, {
       where: {
         id: req.params.id
       }
