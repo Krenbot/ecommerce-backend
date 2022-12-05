@@ -63,7 +63,7 @@ router.delete('/:id', async (req, res) => {
         id: req.params.id
       }
     })
-    res.json(result)
+    res.json('Product Tag Deleted!')
   } catch (err) {
     res.status(500).json(err)
   }

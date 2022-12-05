@@ -18,22 +18,19 @@ router.get('/', async (req, res) => {
 
 // get one product
 router.get('/:id', async (req, res) => {
-  // find a single product by its `id`
   try {
-    const product = await Product.findOne(req.params.id, {
-      include: [Category, Tag],
-    });
-    if (!product) {
-      res
-        .status(400)
-        .json({ message: "Product not found. Try different ID number." });
-      return;
-    }
-    res.json(product)
+    const singleProduct = await Product.findOne({
+      where: {
+        id: req.params.id
+      },
+      include: [Category, Tag]
+    })
+    res.json(singleProduct)
   } catch (err) {
     res.status(500).json(err)
   }
 });
+
 
 // create new product
 router.post('/', async (req, res) => {
@@ -103,7 +100,7 @@ router.delete('/:id', async (req, res) => {
         id: req.params.id
       }
     })
-    res.json(product)
+    res.json('Product Deleted!')
   } catch (err) {
     res.status(500).json(err)
   }
