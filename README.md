@@ -39,13 +39,16 @@ SO THAT my company can compete with other e-commerce companies
 ```
 
 ## Demonstration
-![Here is a video link of the app in action]()
+![Here is a video link of the app in action](https://drive.google.com/file/d/1-7pMzBKzaf3nfYNIm47eE4nojAggsxce/view)
 
 ## Installation
 * For installation onto local machine, clone provided repository.
 * Use `npm init` to initalize node package manager
 * Use `npm install` to install dependencies
-* Use `npm start` to initiate the server in your terminal. Initiating the server automatically drops and reseeds the table.
+* Use `mysql -u root -p` then enter your password to enter the MySQL shell.
+* Use `SOURCE schema.sql;` inside of the MySQL shell to reset the database.
+* Use `npm run seed` in the terminal to apply seeds to the database.
+* Use `npm start` to initiate the server in your terminal.
 
 ## License
 MIT © Krenbot
