@@ -39,7 +39,7 @@ SO THAT my company can compete with other e-commerce companies
 ```
 
 ## Demonstration
-![Here is a video link of the app in action](https://drive.google.com/file/d/1-7pMzBKzaf3nfYNIm47eE4nojAggsxce/view)
+[Here is a video link of the app in action](https://drive.google.com/file/d/1-7pMzBKzaf3nfYNIm47eE4nojAggsxce/view)
 
 ## Installation
 * For installation onto local machine, clone provided repository.
