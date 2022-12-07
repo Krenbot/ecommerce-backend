@@ -45,10 +45,7 @@ SO THAT my company can compete with other e-commerce companies
 * For installation onto local machine, clone provided repository.
 * Use `npm init` to initalize node package manager
 * Use `npm install` to install dependencies
-* Use `mysql -u root -p` then enter your password to enter the MySQL shell.
-* Use `SOURCE schema.sql;` inside of the MySQL shell to reset the database.
-* Use `npm run seed` in the terminal to apply seeds to the database.
-* Use `npm start` to initiate the server in your terminal.
+* Use `npm start` to initiate the server in your terminal. Initiating the server automatically drops and reseeds the table.
 
 ## License
 MIT © Krenbot
